@@ -1,0 +1,7 @@
+<launch>
+
+        <node pkg="gazebo_plugin" type="joint_trajectory_client" name="joint_trajectory_client" />
+
+        <node pkg="tcp_ip_comm" type="server_node" name="server_node" />
+
+</launch>

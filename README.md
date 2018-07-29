@@ -16,3 +16,8 @@ Add the git repository in your catkin workspace:
 cd ~/catkin_ws/src
 git clone https://github.com/mdiamanti/JACO2-ROS-TCPIP-pkgs.git
 ```
+Afterwards, compile your catkin workspace as usual:
+```
+cd ..
+catkin_make
+```

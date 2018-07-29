@@ -2,7 +2,7 @@
 Current repository includes the appropriate ROS packages that allow remote communication and control of Kinova Jaco<sup>2</sup> robotic arm via the use of TCP/IP protocol.
 
 ## Supported Versions
-The configuration used was 64 bit Ubuntu 14.04 and ROS indigo. These packages may work with other configurations as well, but it has only been tested for the one recommended.
+The configuration used was 64 bit Ubuntu 14.04 and ROS indigo. These packages may work with other configurations as well, but they have only been tested for the one recommended.
 
 ## Installation
 The installation as follows was tested on Ubuntu 14.04 and ROS indigo.

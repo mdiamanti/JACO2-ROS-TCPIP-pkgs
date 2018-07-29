@@ -7,12 +7,12 @@ The configuration used was 64 bit Ubuntu 14.04 and ROS indigo. These packages ma
 ## Installation
 The installation as follows was tested on Ubuntu 14.04 and ROS indigo.
 
-# Step 1. Install kinova-ros
+### Step 1. Install kinova-ros
 Install [kinova-ros](https://github.com/Kinovarobotics/kinova-ros#installation) package, following the installation instructions that are analytically reported in the link.
 
-# Step 2. Install JACO2-ROS-TCPIP-pkgs
+### Step 2. Install JACO2-ROS-TCPIP-pkgs
 Add the git repository in your catkin workspace:
 ```
 cd ~/catkin_ws/src
-git clone 
+git clone https://github.com/mdiamanti/JACO2-ROS-TCPIP-pkgs.git
 ```

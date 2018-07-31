@@ -26,3 +26,7 @@ cd ..
 catkin_make
 ```
 ## How to use this repository
+The packages `tcp_ip_comm` and `gazebo_plugin` were developed in order to be used in combination and control remotely the movement of the robotic arm. The node `tcp_ip_comm` receives through socket programming the desired joint angular position of the arm, which then is sent to `gazebo_plugin` node that is responsible for executing the corresponding trajectory. An overview of the above described process is given by the following ROS graph, generated with the use of the ROS tool rqt_graph.
+
+
+otherwise each package can be used separately to meet a different purpose

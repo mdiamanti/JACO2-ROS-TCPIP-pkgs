@@ -25,3 +25,4 @@ Afterwards, compile your catkin workspace as usual:
 cd ..
 catkin_make
 ```
+## How to use this repository

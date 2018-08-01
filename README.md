@@ -26,10 +26,39 @@ cd ..
 catkin_make
 ```
 ## How to use this repository
-The packages `tcp_ip_comm` and `gazebo_plugin` were developed in order to be used in combination and control remotely the movement of the robotic arm. The node `tcp_ip_comm` receives through socket programming the desired joint angular position of the arm, which then is sent to `gazebo_plugin` node that is responsible for executing the corresponding trajectory. 
+The `tcp_ip_comm` and `gazebo_plugin` packages were developed in order to be used in combination and to control remotely the movement of the robotic arm. Otherwise, each package can be used separately after some small modifications to meet a different purpose. 
+
+The `tcp_ip_comm` node receives through socket programming the desired joint angular position of the arm, which is then sent to `gazebo_plugin` node that is responsible for executing the corresponding trajectory. 
 
 An overview of the above described process is given by the following ROS graph, generated with the use of the ROS tool rqt_graph.
 
 ![tcpip_rosgraph](https://user-images.githubusercontent.com/39567867/43488813-90d3e84c-9523-11e8-9cbb-3b84a207cae4.png)
 
-Otherwise, each package can be used separately after some small modifications to meet a different purpose.
+The form of the joint angular position message that is received from `tcp_ip_comm` node constitutes a string with the angular position of each joint in rads (variable of type double). Each angular position is separated from the others by spaces. Some examples are as follows:
+```
+"0.0 2.9 1.3 4.2 1.4 0.0"         -> home position of the arm
+"3.14 3.14 3.14 3.14 3.14 3.14"   -> candle position of the arm
+```
+## Execution
+
+#### Step 1. Launch j2n6s300 robotic arm in Gazebo
+First of all, in order to use these packages you should launch j2n6s300 robotic arm in Gazebo using the launch file included in [kinova_gazebo](https://github.com/Kinovarobotics/kinova-ros/tree/master/kinova_gazebo) package:
+```
+roslaunch kinova_gazebo robot_launch.launch 
+or
+roslaunch kinova_gazebo robot_launch.launch kinova_robotType:=j2n6s300
+```
+
+#### Step 2. Launch tcp_ip_comm and gazebo_plugin packages
+If you wish to use `tcp_ip_comm` and `gazebo_plugin` packages in combination, as described in the previous section, you can launch the .launch file included in `tcp_ip_comm` package. In this way, both `tcp_ip_comm` and `gazebo_plugin` nodes are launched:
+```
+roslaunch tcp_ip_comm tcp_ip_comm_launch.launch
+```
+Otherwise, you can launch each node separately in the following way:
+```
+rosrun gazebo_plugin joint_trajectory_client
+and/or
+rosrun tcp_ip_comm server_node
+```
+
+
